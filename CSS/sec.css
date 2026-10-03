@@ -856,13 +856,16 @@ nav a {
   grid-template-columns: auto 1fr;
   column-gap: 12px;
   row-gap: 8px;
-
+  cursor: pointer;
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease,
     opacity 0.25s ease;
+}
+#dashboard .task-card:hover {
+  background: var(--surface-2);
 }
 #dashboard .task-card .control-container {
   display: flex;
@@ -872,15 +875,26 @@ nav a {
 }
 #dashboard .task-card .control-container button {
   border: 1px solid var(--border);
-  padding: 4px;
+  padding: 2px;
   border-radius: 5px;
   color: var(--destructive);
   background: var(--destructive-soft-strong);
+  display: none;
+  transition: all 0.2s ease;
+}
+@media (max-width: 640px) {
+  #dashboard .task-card .control-container button {
+    display: block;
+  }
+}
+#dashboard .task-card:hover .control-container button {
+  display: block;
 }
 #dashboard .task-card .control-container button:hover {
   border: 1px solid var(--destructive-soft-strong);
   color: var(--text-primary);
   background: var(--destructive-hover);
+  cursor: pointer;
 }
 #dashboard .task-card .content-container {
   display: flex;
@@ -988,13 +1002,14 @@ nav a {
 ------------------------- */
 
 #dashboard .task-tags {
-  grid-column: 2 / 3;
-
   display: flex;
   gap: 7px;
   flex-wrap: wrap;
-
   transition: opacity 0.25s ease;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
 }
 
 #dashboard .tag {
@@ -1139,7 +1154,7 @@ nav a {
 }
 
 #history .container .head-content .header p span {
-  color: var(--text-primary);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -1283,23 +1298,17 @@ nav a {
 ========================================================= */
 
 #history .task-card {
-  width: 100%;
-  box-sizing: border-box;
-
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-
   padding: 20px;
-
   font-family: var(--font-body);
 
   display: grid;
   grid-template-columns: auto 1fr;
-
   column-gap: 12px;
   row-gap: 8px;
-
+  cursor: pointer;
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease,
@@ -1307,11 +1316,45 @@ nav a {
     transform 0.25s ease,
     opacity 0.25s ease;
 }
-
 #history .task-card:hover {
-  border-color: var(--border-strong);
+  background: var(--surface-2);
 }
-
+#history .task-card .control-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#history .task-card .control-container button {
+  border: 1px solid var(--border);
+  padding: 2px;
+  border-radius: 5px;
+  color: var(--destructive);
+  background: var(--destructive-soft-strong);
+  display: none;
+  transition: all 0.2s ease;
+}
+@media (max-width: 640px) {
+  #history .task-card .control-container button {
+    display: block;
+  }
+}
+#history .task-card:hover .control-container button {
+  display: block;
+}
+#history .task-card .control-container button:hover {
+  border: 1px solid var(--destructive-soft-strong);
+  color: var(--text-primary);
+  background: var(--destructive-hover);
+  cursor: pointer;
+}
+#history .task-card .content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+}
 /* =========================================================
    Checkbox
 ========================================================= */
@@ -1386,8 +1429,6 @@ nav a {
 
   line-height: 1.4;
 
-  align-self: center;
-
   transition:
     color 0.25s ease,
     opacity 0.25s ease;
@@ -1418,12 +1459,11 @@ nav a {
 ========================================================= */
 
 #history .task-tags {
-  grid-column: 2 / 3;
-
   display: flex;
   gap: 7px;
   flex-wrap: wrap;
-
+  width: 100%;
+  justify-content: end;
   transition: opacity 0.25s ease;
 }
 
@@ -2035,7 +2075,6 @@ nav a {
   width: 100%;
   max-width: 460px;
   max-height: 88vh;
-  overflow-y: auto;
   background: var(--surface);
   border-radius: 22px;
   padding: 26px 24px 22px;
@@ -2144,11 +2183,11 @@ nav a {
 
 .edit-input {
   display: block;
-  width: 100%;
+  width: 98%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 10px 13px;
+  padding: 10px 5px;
   margin-bottom: 18px;
   font-size: 14.5px;
   font-family: inherit;

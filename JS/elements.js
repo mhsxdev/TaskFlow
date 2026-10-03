@@ -40,6 +40,7 @@ export const dashboard = {
   section: document.querySelector("#dashboard"),
   username: document.querySelector("#dashboard .username"),
   openTaskCount: document.querySelector("#dashboard .header p span"),
+  openTaskCountParent: document.querySelector("#dashboard .header p"),
   addTaskBtn: document.querySelector("#dashboard .head-content .add-task"),
 
   // filters
