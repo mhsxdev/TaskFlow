@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="CSS/sec.css" />
+    <title>TaskFlow</title>
+  </head>
+  <body>
+    <div class="app">
+      <nav>
+        <div class="long">
+          <h1><i class="fa-solid fa-caret-right"></i> Task<span>Flow</span></h1>
+        </div>
+        <div class="short">
+          <h1><i class="fa-solid fa-caret-right"></i> T<span>F</span></h1>
+        </div>
+
+        <ul>
+          <li class="dashboard active" data-section="dashboard">
+            <a href="#">
+              <i class="fa-regular fa-house"></i> <span> Dashboard</span>
+            </a>
+          </li>
+          <li class="history" data-section="history">
+            <a href="#">
+              <i class="fa-regular fa-clock"></i> <span> History</span>
+            </a>
+          </li>
+          <li class="settings" data-section="settings">
+            <a href="#">
+              <i class="fa-solid fa-sliders"></i> <span> Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="content">
+        <section id="dashboard" class="page-section active-section">
+          <div class="container">
+            <div class="head-content">
+              <div class="header">
+                <h1>Hi, <span class="username">User</span> .</h1>
+                <p>you have <span class="task-number">5</span> open tasks</p>
+              </div>
+              <button class="add-task">Add task</button>
+            </div>
+          </div>
+          <div class="control-panel">
+            <form class="task-form">
+              <div class="form-field">
+                <div class="select-wrapper">
+                  <select id="category" name="category">
+                    <option value="all-c">All categories</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                    <option value="health">Health</option>
+                    <option value="uncategorized">Uncategorized</option>
+                  </select>
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+              </div>
+            </form>
+            <form class="task-form">
+              <div class="form-field">
+                <div class="select-wrapper">
+                  <select id="priority" name="priority">
+                    <option value="all-p">All priorities</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+              </div>
+            </form>
+            <span>|</span>
+            <form action="">
+              <fieldset class="view">
+                <div class="view-options">
+                  <button type="button" class="all-btn active" data-view="all">
+                    All
+                  </button>
+
+                  <button type="button" class="active-btn" data-view="active">
+                    Active
+                  </button>
+                  <button
+                    type="button"
+                    class="completed-btn"
+                    data-view="completed"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="task-view" data-view="grid">
+            <div class="empty-dashboard">
+              <i class="fa-regular fa-clipboard"></i>
+              <h3>nothing on your plate yet</h3>
+              <span>add your first task to start your <span>Flow</span></span>
+              <button class="add-task">Add task</button>
+            </div>
+            <!-- <div class="task-card">
+              <div class="control-container">
+                <input type="checkbox" class="task-checkbox" />
+                <button class="delete-x-task">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+              <div class="content-container">
+                <div class="task-title">Finalize Q3 investor deck</div>
+                <p class="task-desc">
+                  Walk through the updated revenue slides with Priya before the
+                  board call Tuesday morning.
+                </p>
+                <div class="task-tags">
+                  <span class="tag pri-high">High</span>
+                  <span class="tag tag-work">Work</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </section>
+        <section id="history" class="page-section">
+          <div class="container">
+            <div class="head-content">
+              <div class="header">
+                <h1>History</h1>
+                <p>you have <span>5</span> tasks in the history</p>
+              </div>
+              <button class="clear-history">
+                clear history<i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+
+            <form action="">
+              <fieldset class="view">
+                <div class="view-options">
+                  <button type="button" class="all-btn active" data-view="all">
+                    All
+                  </button>
+
+                  <button type="button" class="active-btn" data-view="active">
+                    Active
+                  </button>
+                  <button
+                    type="button"
+                    class="completed-btn"
+                    data-view="completed"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+            <div class="task-view">
+              <div class="empty-history">
+                <i class="fa-regular fa-folder"></i>
+                <h3>nothing archived yet</h3>
+                <span>completed and deleted tasks will show up here</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="settings" class="page-section">
+          <h1 class="settings-title">Settings</h1>
+          <p class="settings-subtitle">Update your and preferences.</p>
+          <div class="content">
+            <form class="settings-form">
+              <label class="settings-label" for="setName">Your name</label>
+              <input
+                class="settings-input name-field"
+                id="setName"
+                type="text"
+                placeholder="Your name"
+              />
+
+              <label class="settings-label">View</label>
+              <div class="segmented" id="settings-view">
+                <button
+                  type="button"
+                  class="view-option-btn active"
+                  data-view="grid"
+                >
+                  Grid
+                </button>
+                <button type="button" class="view-option-btn" data-view="list">
+                  List
+                </button>
+              </div>
+
+              <label class="settings-label">Theme</label>
+              <div class="segmented" id="settings-theme">
+                <button
+                  type="button"
+                  class="theme-option-btn"
+                  data-theme="light"
+                >
+                  Light
+                </button>
+                <button
+                  type="button"
+                  class="theme-option-btn active"
+                  data-theme="dark"
+                >
+                  Dark
+                </button>
+              </div>
+
+              <button type="submit" class="btn-save">Save changes</button>
+            </form>
+
+            <div class="settings-divider"></div>
+
+            <div class="settings-danger">
+              <div>
+                <p class="danger-title">Reset demo data</p>
+                <p class="danger-desc">
+                  Clears saved tasks and preferences, and restarts onboarding.
+                </p>
+              </div>
+              <button type="button" class="btn-reset">Reset</button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="task-overlay">
+        <div class="task-modal">
+          <div class="task-modal-header">
+            <div>
+              <span class="modal-eyebrow">TaskFlow</span>
+              <h2>Add task</h2>
+            </div>
+
+            <button type="button" class="close-task-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <form class="task-form">
+            <div class="form-field">
+              <label for="task-title">Title</label>
+              <input
+                type="text"
+                id="task-title"
+                name="title"
+                placeholder="What needs to be done?"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="task-description">Description</label>
+              <textarea
+                id="task-description"
+                name="description"
+                placeholder="Add some details..."
+                rows="4"
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="task-category">Category</label>
+
+                <div class="select-wrapper">
+                  <select id="task-category" name="category">
+                    <option value="uncategorized">Uncategorized</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                    <option value="health">Health</option>
+                  </select>
+
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="task-priority">Priority</label>
+
+                <div class="select-wrapper">
+                  <select id="task-priority" name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="task-form-actions">
+              <button type="button" class="cancel-task">Cancel</button>
+
+              <button type="submit" class="add-task">Add task</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="intro-overlay">
+        <div class="intro-card">
+          <h4><i class="fa-solid fa-caret-right"></i> Task<span>Flow</span></h4>
+          <h2>Let's get your space ready</h2>
+          <p>
+            TaskFlow keeps your work, life, and everything between in one calm
+            place. Just a couple of things first.
+          </p>
+
+          <form class="setup-form">
+            <fieldset class="name">
+              <legend>Your name</legend>
+              <input
+                type="text"
+                name="username"
+                class="name-field"
+                placeholder="your name"
+                required
+              />
+            </fieldset>
+
+            <fieldset class="view">
+              <span>Default View</span>
+
+              <div class="view-options">
+                <button
+                  type="button"
+                  class="view-option-btn active"
+                  data-view="grid"
+                >
+                  Grid
+                </button>
+
+                <button type="button" class="view-option-btn" data-view="list">
+                  List
+                </button>
+              </div>
+            </fieldset>
+
+            <fieldset class="theme">
+              <span>Theme</span>
+
+              <div class="theme-options">
+                <button
+                  type="button"
+                  class="theme-option-btn"
+                  data-theme="light"
+                >
+                  Light
+                </button>
+
+                <button
+                  type="button"
+                  class="theme-option-btn active"
+                  data-theme="dark"
+                >
+                  Dark
+                </button>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="continue">Continue</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="clear-history-overlay">
+      <div class="clear-history-modal">
+        <div class="warning-icon">
+          <svg viewBox="0 0 20 20" width="22" height="22">
+            <path
+              d="M10 3.5l7.5 13h-15z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <line
+              x1="10"
+              y1="8.3"
+              x2="10"
+              y2="11.6"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+            <circle cx="10" cy="14" r="0.9" fill="currentColor" />
+          </svg>
+        </div>
+
+        <h2 class="clear-history-title">Clear your history?</h2>
+        <p class="clear-history-desc">
+          This permanently removes every completed and deleted task. This can't
+          be undone.
+        </p>
+
+        <div class="clear-history-actions">
+          <button type="button" class="btn-cancel">Cancel</button>
+          <button type="button" class="btn-clear">Clear history</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-overlay">
+      <div class="detail-card">
+        <button type="button" class="close-detail" aria-label="Close">
+          &times;
+        </button>
+
+        <h2 class="detail-title">Finalize Q3 investor deck</h2>
+
+        <div class="detail-tags">
+          <span class="tag pri-high">High</span>
+          <span class="tag tag-work">Work</span>
+        </div>
+
+        <p class="detail-desc">
+          Walk through the updated revenue slides with Priya before the board
+          call Tuesday morning.
+        </p>
+
+        <div class="detail-actions">
+          <button type="button" class="btn-delete">Delete task</button>
+          <button type="button" class="btn-edit">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit task card (opens when Edit is clicked) -->
+    <div class="edit-overlay">
+      <form class="edit-card">
+        <h2 class="edit-heading">Edit task</h2>
+
+        <label class="edit-label" for="editTitle">Title</label>
+        <input
+          class="edit-input"
+          id="editTitle"
+          type="text"
+          value="Finalize Q3 investor deck"
+        />
+
+        <label class="edit-label" for="editDesc">Description</label>
+        <textarea class="edit-input edit-textarea" id="editDesc">
+Walk through the updated revenue slides with Priya before the board call Tuesday morning.</textarea
+        >
+
+        <label class="edit-label" for="editPriority">Priority</label>
+        <select class="edit-input edit-select" id="editPriority">
+          <option value="high" selected>High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+
+        <label class="edit-label" for="editCategory">Category</label>
+        <select class="edit-input edit-select" id="editCategory">
+          <option value="work" selected>Work</option>
+          <option value="personal">Personal</option>
+          <option value="study">Study</option>
+          <option value="health">Health</option>
+          <option value="uncategorized">Uncategorized</option>
+        </select>
+
+        <div class="edit-actions">
+          <button type="button" class="btn-cancel-edit">Cancel</button>
+          <button type="submit" class="btn-save-edit">Save changes</button>
+        </div>
+      </form>
+    </div>
+    <script type="module" src="JS/elements.js"></script>
+    <script type="module" src="JS/ui.js"></script>
+    <script type="module" src="JS/main.js"></script>
+  </body>
+</html>

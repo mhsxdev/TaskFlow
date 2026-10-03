@@ -1,0 +1,999 @@
+/* =========================================================
+   TaskFlow — Design Tokens
+   Warm-neutral base + deep muted teal accent.
+   Drop this file into your project and import it before
+   your other stylesheets.
+
+   Fonts used alongside these tokens (add to your <head>):
+  
+
+   Dark mode: automatically follows system preference, and can
+   be forced by setting data-theme="light" or data-theme="dark"
+   on <html> (e.g. via a theme toggle in your app).
+   ========================================================= */
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+:root {
+  /*spaces*/
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3.5rem;
+  --space-10: 4.5rem;
+  /* ---- Base surfaces ---- */
+  --bg: #0f0e0c;
+  --surface: #1a1815;
+  --surface-2: #211e1a;
+  --surface-hover: #26221d;
+  --border: #332e27;
+  --border-strong: #413a30;
+
+  --text-primary: #f6f2ec;
+  --text-secondary: #b4a996;
+  --text-tertiary: #8a8071;
+
+  --accent: #4c9885;
+  --accent-hover: #5cac97;
+  --accent-ink: #08120f;
+  --accent-soft: #1d2e29;
+  --accent-soft-strong: #25392f;
+
+  --destructive: #c97d67;
+  --destructive-hover: #d48e78;
+  --destructive-soft: #2e2019;
+  --destructive-soft-strong: #3a2a20;
+
+  --tag-work-bg: #1d2e29;
+  --tag-work-fg: #8fc2af;
+  --tag-personal-bg: #2e232a;
+  --tag-personal-fg: #d0a0b6;
+  --tag-study-bg: #22242b;
+  --tag-study-fg: #a7adc4;
+  --tag-health-bg: #232a1c;
+  --tag-health-fg: #a9c283;
+  --tag-uncat-bg: #242019;
+  --tag-uncat-fg: #b3a793;
+
+  --pri-low-bg: #1e2723;
+  --pri-low-fg: #9fb6a8;
+  --pri-med-bg: #2b2418;
+  --pri-med-fg: #d4b268;
+  --pri-high-bg: #2c1f1a;
+  --pri-high-fg: #d69a82;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.55);
+
+  /* ---- Radius ---- */
+  --radius-sm: 9px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* ---- Type ---- */
+  --font-display:
+    "Fraunces", Georgia, "Times New Roman", serif; /* headlines & page titles only */
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* everything else */
+}
+
+/* Follows system dark-mode preference automatically,
+   unless a manual data-theme="light" is set. */
+
+/* Manual override — set data-theme="dark" on <html> or <body>
+   to force dark mode regardless of system preference. */
+:root[data-theme="light"] {
+  --bg: #faf8f5;
+  --surface: #f0ece6;
+  --surface-2: #e9e2d8;
+  --surface-hover: #e6dfd3;
+  --border: #e1d9cb;
+  --border-strong: #d2c6b2;
+
+  /* ---- Text ---- */
+  --text-primary: #1b1917;
+  --text-secondary: #6b6153;
+  --text-tertiary: #9c9182;
+
+  /* ---- Accent (deep muted teal) ---- */
+  --accent: #2f6b5e;
+  --accent-hover: #3f8a78;
+  --accent-ink: #f4fbf9; /* text/icon color on top of --accent */
+  --accent-soft: #e3ede9; /* tinted backgrounds, active nav states */
+  --accent-soft-strong: #d2e4de;
+
+  /* ---- Deepest neutral (high-emphasis text / dark-mode base) ---- */
+  --deep: #0f0e0c;
+
+  /* ---- Destructive (muted rust, not neon red) ---- */
+  --destructive: #9c5344;
+  --destructive-hover: #b0614f;
+  --destructive-soft: #f2e1da;
+  --destructive-soft-strong: #ead0c6;
+
+  /* ---- Category tags (tonal, earth-tone family) ---- */
+  --tag-work-bg: #e1ece9;
+  --tag-work-fg: #2c5e52;
+  --tag-personal-bg: #f0e3e8;
+  --tag-personal-fg: #7c4e63;
+  --tag-study-bg: #e6e7ec;
+  --tag-study-fg: #4e5670;
+  --tag-health-bg: #e7ecdc;
+  --tag-health-fg: #556b3b;
+  --tag-uncat-bg: #ece7de;
+  --tag-uncat-fg: #786f60;
+
+  /* ---- Priority tags ---- */
+  --pri-low-bg: #e6ece8;
+  --pri-low-fg: #54685d;
+  --pri-med-bg: #f0e7d2;
+  --pri-med-fg: #84652b;
+  --pri-high-bg: #f1dfd8;
+  --pri-high-fg: #95503e;
+
+  /* ---- Elevation ---- */
+  --shadow-sm:
+    0 1px 2px rgba(27, 25, 23, 0.05), 0 1px 1px rgba(27, 25, 23, 0.04);
+  --shadow-md: 0 6px 20px rgba(27, 25, 23, 0.08);
+  --shadow-lg: 0 20px 48px rgba(15, 14, 12, 0.18);
+}
+html,
+body {
+  background-color: var(--bg);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+}
+.app {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 250px 1fr;
+}
+.content {
+  min-width: 0;
+}
+.page-section {
+  display: none;
+  color: var(--text-primary);
+  padding: 20px 0 0 50px;
+}
+.page-section .head-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.control-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  margin-top: 20px;
+}
+.select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select-wrapper select {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: var(--bg);
+
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+
+  padding: 8px 20px 8px 2px;
+  cursor: pointer;
+}
+.task-form {
+  padding: 2px;
+  height: 100%;
+}
+.select-wrapper i {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+
+  color: var(--text-tertiary);
+  font-size: 10px;
+}
+.page-section .head-content button {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: var(--text-primary);
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.page-section .head-content button:hover {
+  background-color: var(--accent-hover);
+}
+.page-section h1 {
+  margin-bottom: 10px;
+}
+.page-section p {
+  color: var(--text-secondary);
+  margin-top: 0;
+}
+.page-section fieldset {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+.page-section .view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  align-items: center;
+}
+.page-section button {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.page-section form {
+  border: 1px solid var(--border);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 8px;
+  padding: 2px;
+}
+.page-section form .active {
+  background-color: var(--accent-soft);
+}
+.page-section button:hover {
+  color: var(--text-tertiary);
+}
+.page-section.active-section {
+  display: block;
+}
+.page-section .task-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 16px;
+  margin: 20px 20px 20px 0;
+  padding: 4px;
+} /* -------------------------
+   Task Card
+------------------------- */
+
+.task-card {
+  width: 95%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  font-family: var(--font-body);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 8px;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* -------------------------
+   Checkbox
+------------------------- */
+
+.task-checkbox {
+  appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  margin-top: 2px;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+
+  background: var(--surface);
+
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.task-checkbox::after {
+  content: "✓";
+
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+
+  opacity: 0;
+  transform: scale(0.6);
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.task-checkbox:hover {
+  border-color: var(--accent);
+}
+
+.task-checkbox:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.task-checkbox:checked::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.task-checkbox:active {
+  transform: scale(0.9);
+}
+
+/* -------------------------
+   Task Title
+------------------------- */
+
+.task-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  align-self: center;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* -------------------------
+   Task Description
+------------------------- */
+
+.task-desc {
+  grid-column: 2 / 3;
+
+  margin: 0;
+
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* -------------------------
+   Tags
+------------------------- */
+
+.task-tags {
+  grid-column: 2 / 3;
+
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+
+  transition: opacity 0.25s ease;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* -------------------------
+   Completed Task
+------------------------- */
+
+.task-card:has(.task-checkbox:checked) {
+  border-color: var(--border);
+  background: var(--surface-2);
+}
+
+.task-card:has(.task-checkbox:checked) .task-title {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: var(--text-tertiary);
+}
+
+.task-card:has(.task-checkbox:checked) .task-desc {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+.task-card:has(.task-checkbox:checked) .task-tags {
+  opacity: 0.65;
+}
+
+/* -------------------------
+   Priority
+------------------------- */
+
+.pri-low {
+  background: var(--pri-low-bg);
+  color: var(--pri-low-fg);
+}
+
+.pri-medium {
+  background: var(--pri-med-bg);
+  color: var(--pri-med-fg);
+}
+
+.pri-high {
+  background: var(--pri-high-bg);
+  color: var(--pri-high-fg);
+}
+
+/* -------------------------
+   Category
+------------------------- */
+
+.tag-work {
+  background: var(--tag-work-bg);
+  color: var(--tag-work-fg);
+}
+
+.tag-personal {
+  background: var(--tag-personal-bg);
+  color: var(--tag-personal-fg);
+}
+
+.tag-study {
+  background: var(--tag-study-bg);
+  color: var(--tag-study-fg);
+}
+
+.tag-health {
+  background: var(--tag-health-bg);
+  color: var(--tag-health-fg);
+}
+
+.tag-uncategorized {
+  background: var(--tag-uncat-bg);
+  color: var(--tag-uncat-fg);
+}
+/*-----------------*/
+nav {
+  width: 250px;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  border-right: 1px solid var(--border);
+
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 0;
+  background: var(--surface);
+  overflow: hidden;
+}
+nav h1 {
+  font-family: var(--font-display);
+  font-size: var(--space-6);
+  width: 100%;
+  padding-left: 40px;
+}
+nav h1 i,
+nav h1 span {
+  color: var(--accent);
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+nav ul li {
+  padding-bottom: var(--space-6);
+  padding: 0 0 0 25px;
+  margin: 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+nav ul .non-active:hover {
+  background-color: var(--pri-med-bg);
+}
+nav ul .active {
+  background-color: var(--accent-soft);
+}
+nav ul .active a {
+  color: var(--accent);
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(15, 14, 12, 0.75);
+
+  z-index: 1000;
+}
+.intro-card {
+  color: var(--text-primary);
+  width: 315px;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.intro-card h4 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--space-4);
+}
+
+.intro-card h4 .fa-solid.fa-caret-right {
+  color: var(--accent);
+}
+.intro-card h4 span {
+  color: var(--accent);
+}
+.intro-card h2 {
+  margin: 0;
+  padding: 20px 0 6px 0;
+  font-size: 24px;
+  font-family: var(--font-display);
+}
+
+.intro-card p {
+  margin: 0;
+  padding: 8px 0 30px 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+
+.intro-card .setup-form fieldset {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+.intro-card .setup-form .view,
+.intro-card .setup-form .theme {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0 25px;
+  align-items: center;
+}
+.intro-card .setup-form .theme {
+  padding-bottom: 40px;
+}
+.intro-card .setup-form .name {
+  width: 100%;
+  padding: 0 0 20px 0;
+}
+.intro-card .setup-form div {
+  background: var(--bg);
+  padding: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+}
+.intro-card .setup-form div .active {
+  background-color: var(--accent-soft);
+}
+.intro-card .setup-form fieldset legend {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.intro-card .setup-form fieldset input {
+  width: 100%;
+  height: 25px;
+  outline: none;
+  border: none;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px 10px 3px 10px;
+  color: var(--text-primary);
+}
+.intro-card .setup-form button {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.intro-card .setup-form button:hover {
+  color: var(--text-tertiary);
+}
+.intro-card .setup-form .continue {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 10px 0;
+  background: var(--accent);
+  color: #f6f2ec;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.intro-card .setup-form .continue:hover {
+  background-color: var(--accent-hover);
+  color: #f6f2ec;
+}
+.task-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 14, 12, 0.72);
+
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.task-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.task-modal {
+  width: min(100%, 500px);
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow-lg);
+
+  transform: translateY(10px) scale(0.98);
+
+  transition: transform 0.25s ease;
+}
+
+.task-overlay.active .task-modal {
+  transform: translateY(0) scale(1);
+}
+.task-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.task-modal-header h2 {
+  margin: 4px 0 0;
+
+  font-family: var(--font-display);
+  font-size: 26px;
+
+  color: var(--text-primary);
+}
+
+.modal-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+
+  color: var(--accent);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.close-task-modal {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--text-tertiary);
+
+  cursor: pointer;
+}
+
+.close-task-modal:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+
+  color: var(--text-secondary);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  background: var(--surface-2);
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-field input {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.form-field textarea {
+  padding: 12px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.task-overlay .select-wrapper {
+  position: relative;
+}
+
+.task-overlay .select-wrapper select {
+  appearance: none;
+
+  width: 100%;
+  height: 42px;
+
+  padding: 0 32px 0 12px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  background: var(--surface-2);
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+  font-size: 14px;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.task-overlay .select-wrapper i {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--text-tertiary);
+  font-size: 10px;
+
+  pointer-events: none;
+}
+.task-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 8px;
+}
+
+.cancel-task,
+.add-task {
+  height: 40px;
+
+  padding: 0 18px;
+
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cancel-task {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.cancel-task:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.add-task {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.add-task:hover {
+  background: var(--accent-hover);
+}
+/* ---------- Responsive ---------- */
+
+/* Tablet: sidebar -> icon-only rail */
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 72px 1fr;
+  }
+  nav {
+    width: 72px;
+  }
+  nav h1 span,
+  nav ul li span {
+    display: none; /* keep icons, drop labels */
+  }
+  nav h1 {
+    padding-left: 0;
+    text-align: center;
+  }
+  nav ul li {
+    padding: 0;
+    justify-content: center;
+  }
+  .page-section {
+    padding: 20px 20px 0 20px;
+  }
+}
+
+/* Mobile: sidebar -> top bar */
+@media (max-width: 640px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+  nav {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  nav h1 {
+    width: auto;
+    padding: 0 16px;
+  }
+  nav ul {
+    display: flex;
+    width: auto;
+  }
+  nav ul li {
+    margin: 0 4px;
+    height: 44px;
+    width: 44px;
+  }
+  .page-section .head-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .page-section .head-content button {
+    margin-right: 0;
+    width: 100%;
+  }
+  .control-panel {
+    flex-wrap: wrap;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .task-modal {
+    padding: 18px;
+  }
+}
