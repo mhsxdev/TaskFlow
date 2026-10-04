@@ -1,3 +1,50 @@
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("../fonts/thmanyahsans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("../fonts/thmanyahsans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("../fonts/thmanyahsans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("../fonts/thmanyahserifdisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("../fonts/thmanyahserifdisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("../fonts/thmanyahserifdisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   transition:
     background-color 0.3s ease,
@@ -71,10 +118,8 @@
   --radius-lg: 22px;
 
   /* ---- Type ---- */
-  --font-display:
-    "Fraunces", Georgia, "Times New Roman", serif; /* headlines & page titles only */
-  --font-body:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* everything else */
+  --font-body: "Thmanyah Sans", sans-serif;
+  --font-heading: "Thmanyah Serif Display", serif;
 }
 :root[data-theme="light"] {
   --bg: #faf8f5;
@@ -142,6 +187,7 @@ body {
 }
 body {
   position: relative;
+  font-family: var(--font-body);
 }
 button:focus {
   outline: none; /* remove the default browser outline */
@@ -185,15 +231,17 @@ nav {
 }
 nav .long {
   width: 100%;
+  font-family: var(--font-heading);
 }
 nav h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--space-6);
   width: 100%;
   padding-left: 20px;
 }
 .short {
   display: none;
+  font-family: var(--font-heading);
 }
 nav h1 i,
 nav h1 span {
@@ -240,6 +288,7 @@ nav a {
 /*intro*/
 .intro-card {
   display: none;
+  font-family: var(--font-body);
 }
 .intro-overlay {
   display: none;
@@ -291,7 +340,7 @@ nav a {
   margin: 0;
   padding: 20px 0 6px 0;
   font-size: 24px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
 }
 
 .intro-card p {
@@ -400,7 +449,7 @@ nav a {
   padding: 20px;
 
   background: rgba(15, 14, 12, 0.72);
-
+  font-family: var(--font-body);
   z-index: 1000;
 
   opacity: 0;
@@ -449,7 +498,7 @@ nav a {
 .task-modal-header h2 {
   margin: 4px 0 0;
 
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 26px;
 
   color: var(--text-primary);
@@ -697,7 +746,7 @@ nav a {
 }
 
 .empty-dashboard span span {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   color: var(--accent);
   font-size: large;
 }
@@ -732,6 +781,7 @@ nav a {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  font-family: var(--font-heading);
 }
 #dashboard .select-wrapper {
   position: relative;
@@ -1137,6 +1187,7 @@ nav a {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  font-family: var(--font-heading);
 }
 
 #history .container .head-content .header {
@@ -1355,66 +1406,133 @@ nav a {
   justify-content: start;
   gap: 10px;
 }
+
 /* =========================================================
    Checkbox
 ========================================================= */
+/* =========================
+   Completed History Task
+========================= */
+
+#history .task-card.is-completed {
+  background: var(--surface-2);
+  border-color: var(--border);
+  opacity: 0.8;
+}
+
+#history .task-card.is-completed .task-title {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: var(--text-tertiary);
+}
+
+#history .task-card.is-completed .task-desc {
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+#history .task-card.is-completed .task-tags {
+  opacity: 0.65;
+} /* =========================
+   Deleted History Task
+========================= */
+
+#history .task-card.is-deleted {
+  background: var(--surface-2);
+  border-color: var(--border);
+  opacity: 0.7;
+}
+
+#history .task-card.is-deleted .task-title {
+  color: var(--text-tertiary);
+}
+
+#history .task-card.is-deleted .task-desc {
+  color: var(--text-tertiary);
+  opacity: 0.6;
+}
+
+#history .task-card.is-deleted .task-tags {
+  opacity: 0.5;
+}
+
+#history .task-card.is-deleted .task-title::before {
+  content: "Deleted";
+  display: inline-block;
+
+  margin-right: 8px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: var(--text-tertiary);
+}
+/* =========================
+   History Restore Control
+========================= */
 
 #history .task-checkbox {
   appearance: none;
 
-  width: 20px;
-  height: 20px;
-
-  margin-top: 2px;
-
-  border: 1px solid var(--border-strong);
-  border-radius: 5px;
-
-  background: var(--surface);
-
-  cursor: pointer;
+  width: 22px;
+  height: 22px;
 
   display: grid;
   place-items: center;
 
+  margin: 0;
+
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+
+  background: transparent;
+
+  cursor: pointer;
+
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    transform 0.15s ease;
+    transform 0.2s ease;
 }
 
-#history .task-checkbox::after {
-  content: "✓";
-
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
+#history .task-checkbox::before {
+  content: "\f2ea";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 11px;
 
   opacity: 0;
 
-  transform: scale(0.6);
+  transform: scale(0.7);
 
   transition:
-    opacity 0.15s ease,
-    transform 0.15s ease;
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 #history .task-checkbox:hover {
   border-color: var(--accent);
-}
+  background: var(--accent-soft);
 
-#history .task-checkbox:checked {
-  background: var(--accent);
-  border-color: var(--accent);
+  transform: scale(1.05);
 }
-
-#history .task-checkbox:checked::after {
+#history .task-checkbox:hover::after {
+  content: "restore";
+  color: var(--destructive);
+  position: relative;
+  top: -30px;
+  left: -12;
+}
+#history .task-checkbox:hover::before {
   opacity: 1;
   transform: scale(1);
 }
 
-#history .task-checkbox:active {
-  transform: scale(0.9);
+#history .task-checkbox:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* =========================================================
@@ -1702,7 +1820,7 @@ nav a {
 #settings .settings-title {
   margin: 0 0 8px;
 
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
 
   color: var(--text-primary);
 }
@@ -2158,7 +2276,7 @@ nav a {
   color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   cursor: pointer;
 }
 
@@ -2230,7 +2348,7 @@ nav a {
   border-radius: 11px;
   font-size: 14px;
   font-weight: 600;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   cursor: pointer;
 }
 
